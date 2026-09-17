@@ -2,7 +2,7 @@ export const STATS = [
 
 {
 
-number:2,
+number:3,
 
 suffix:"+",
 
