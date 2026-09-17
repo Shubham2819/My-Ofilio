@@ -35,7 +35,7 @@ export default function About() {
           </h3>
 
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
-            I am a Full Stack Developer with 2+ years of experience building modern,
+            I am a Full Stack Developer with 3+ years of experience building modern,
             scalable and responsive web applications using <span className="text-[#0A84FF]">.NET</span>,
             <span className="text-[#0A84FF]"> React</span>,
             <span className="text-[#0A84FF]"> Next.js</span>,
@@ -51,7 +51,7 @@ export default function About() {
 
           <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm text-slate-300">
             <span className="rounded-full border border-[#FF9933]/25 bg-[#FF9933]/10 px-5 py-2">
-              2+ Years Experience
+              3+ Years Experience
             </span>
             <span className="rounded-full border border-[#0A84FF]/25 bg-[#0A84FF]/10 px-5 py-2">
               Full Stack Developer

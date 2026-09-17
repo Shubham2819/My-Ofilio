@@ -52,7 +52,7 @@ export default function HeroContent() {
 
       <p className="mt-8 max-w-xl text-lg leading-8 text-slate-400">
 
-        Passionate Full Stack Developer with 2+ years of experience building scalable web applications using ASP.NET, React.js, Next.js, SQL Server, PHP, JavaScript and modern frontend technologies.
+        Passionate Full Stack Developer with 3+ years of experience building scalable web applications using ASP.NET, React.js, Next.js, SQL Server, PHP, JavaScript and modern frontend technologies.
 
       </p>
 

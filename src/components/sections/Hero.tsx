@@ -34,7 +34,7 @@ export default function Hero() {
             </h3>
 
             <p className="mt-8 max-w-xl leading-8 text-slate-400">
-              I have 2+ years of experience building modern web applications
+              I have 3+ years of experience building modern web applications
               using .NET, React.js, Next.js, SQL Server, JavaScript, PHP,
               Bootstrap and other web technologies.
             </p>

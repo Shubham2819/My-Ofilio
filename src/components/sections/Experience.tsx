@@ -20,7 +20,7 @@ const experiences = [
     role: "Full Stack Developer",
     company: "Individual Health Insurance Platform",
     location: "India",
-    period: "2+ Years",
+    period: "3+ Years",
     description:
       "Led the design and development of the Individual Health Insurance line of business from the ground up, building end-to-end workflows for quotation, premium calculation, onboarding, enrollment, document management, payment processing and policy issuance.",
     technologies: [
@@ -104,7 +104,7 @@ export default function Experience() {
         <SectionHeading subtitle="My Journey" title="Experience" />
 
         <p className="mx-auto mt-8 max-w-3xl text-center text-base leading-7 text-slate-400">
-          2+ years of full stack development experience focused on insurance
+          3+ years of full stack development experience focused on insurance
           technology, API integrations, workflow automation, business
           applications and database-driven systems.
         </p>
