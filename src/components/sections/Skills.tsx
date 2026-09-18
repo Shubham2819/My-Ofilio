@@ -12,7 +12,7 @@ import {
   Workflow,
 } from "lucide-react";
 import {
-  SiCsharp,
+  SiSharp,
   SiDotnet,
   SiGit,
   SiGithub,
@@ -43,7 +43,7 @@ type SkillGroupProps = {
 const coreTechnologies: Technology[] = [
   {
     name: "C#",
-    icon: <SiCsharp />,
+    icon: <SiSharp />,
     accent: "blue",
   },
   {
