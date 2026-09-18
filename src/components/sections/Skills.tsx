@@ -1,229 +1,276 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {SiDotnet,SiReact,SiNextdotjs,SiTypescript,SiJavascript,SiPostgresql,SiMysql,SiGit,SiGithub,} from "react-icons/si";
-import { FaServer } from "react-icons/fa6";
-import {Database,Globe,Server,Workflow,BrainCircuit,} from "lucide-react";
+import {
+  BrainCircuit,
+  Database,
+  GitBranch,
+  Globe,
+  Layers3,
+  Server,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
+import {
+  SiCsharp,
+  SiDotnet,
+  SiGit,
+  SiGithub,
+  SiJavascript,
+  SiNextdotjs,
+  SiPostgresql,
+  SiReact,
+  SiTypescript,
+} from "react-icons/si";
+
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-type Skill = {
+type Technology = {
   name: string;
-  level: number;
   icon: React.ReactNode;
   accent?: "blue" | "orange";
 };
 
-const languageSkills: Skill[] = [
+type SkillGroupProps = {
+  number: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  technologies: Technology[];
+};
+
+const coreTechnologies: Technology[] = [
   {
     name: "C#",
-    level: 90,
-    icon: <SiDotnet />,
+    icon: <SiCsharp />,
+    accent: "blue",
+  },
+  {
+    name: "JavaScript",
+    icon: <SiJavascript />,
+    accent: "orange",
+  },
+  {
+    name: "TypeScript",
+    icon: <SiTypescript />,
     accent: "blue",
   },
   {
     name: "SQL",
-    level: 90,
-    icon: <Database />,
-    accent: "orange",
-  },
-  {
-    name: "JavaScript",
-    level: 90,
-    icon: <SiJavascript />,
+    icon: <Database size={17} />,
     accent: "orange",
   },
 ];
 
-const frontendSkills: Skill[] = [
+const frontendTechnologies: Technology[] = [
   {
     name: "React.js",
-    level: 90,
     icon: <SiReact />,
     accent: "blue",
   },
   {
     name: "Next.js",
-    level: 85,
     icon: <SiNextdotjs />,
     accent: "blue",
   },
   {
-    name: "TypeScript",
-    level: 78,
-    icon: <SiTypescript />,
+    name: "HTML",
+    icon: <Globe size={17} />,
+    accent: "orange",
+  },
+  {
+    name: "CSS",
+    icon: <Globe size={17} />,
     accent: "blue",
+  },
+  {
+    name: "Bootstrap",
+    icon: <Layers3 size={17} />,
+    accent: "orange",
   },
 ];
 
-const backendSkills: Skill[] = [
+const backendTechnologies: Technology[] = [
   {
-    name: ".NET Core",
-    level: 90,
+    name: "ASP.NET Core",
     icon: <SiDotnet />,
     accent: "blue",
   },
   {
     name: "REST APIs",
-    level: 92,
-    icon: <Server />,
+    icon: <Server size={17} />,
     accent: "blue",
   },
   {
     name: "JWT",
-    level: 85,
-    icon: <Server />,
+    icon: <ShieldCheck size={17} />,
     accent: "orange",
   },
   {
     name: "RBAC",
-    level: 85,
-    icon: <Server />,
+    icon: <ShieldCheck size={17} />,
     accent: "orange",
   },
 ];
 
-const databaseSkills: Skill[] = [
+const databaseTechnologies: Technology[] = [
   {
     name: "PostgreSQL",
-    level: 90,
     icon: <SiPostgresql />,
     accent: "blue",
   },
   {
     name: "MySQL",
-    level: 82,
-    icon: <SiMysql />,
+    icon: <Database size={17} />,
     accent: "orange",
+  },
+  {
+    name: "SQL Server",
+    icon: <Database size={17} />,
+    accent: "blue",
   },
 ];
 
-const architectureSkills: Skill[] = [
+const architectureTechnologies: Technology[] = [
   {
-    name: "API Designing",
-    level: 90,
-    icon: <Globe />,
+    name: "API Design",
+    icon: <Globe size={17} />,
     accent: "blue",
   },
   {
-    name: "ETL Pipelines",
-    level: 80,
-    icon: <Workflow />,
+    name: "API Integration",
+    icon: <Workflow size={17} />,
     accent: "orange",
   },
   {
-    name: "Hangfire",
-    level: 82,
-    icon: <FaServer  />,
+    name: "ETL Pipelines",
+    icon: <Workflow size={17} />,
     accent: "orange",
   },
   {
     name: "Background Jobs",
-    level: 85,
-    icon: <Workflow />,
+    icon: <Server size={17} />,
     accent: "blue",
+  },
+  {
+    name: "Hangfire",
+    icon: <Workflow size={17} />,
+    accent: "orange",
   },
 ];
 
-const aiSkills: Skill[] = [
+const aiTechnologies: Technology[] = [
+  {
+    name: "OCR",
+    icon: <BrainCircuit size={17} />,
+    accent: "orange",
+  },
+  {
+    name: "Document Processing",
+    icon: <BrainCircuit size={17} />,
+    accent: "blue",
+  },
   {
     name: "Claude",
-    level: 85,
-    icon: <BrainCircuit />,
+    icon: <BrainCircuit size={17} />,
     accent: "orange",
   },
   {
     name: "Codex",
-    level: 85,
-    icon: <BrainCircuit />,
+    icon: <BrainCircuit size={17} />,
     accent: "blue",
   },
   {
     name: "GitHub Copilot",
-    level: 90,
     icon: <SiGithub />,
     accent: "blue",
   },
 ];
 
+const developmentTools: Technology[] = [
+  {
+    name: "Git",
+    icon: <SiGit />,
+    accent: "orange",
+  },
+  {
+    name: "GitHub",
+    icon: <SiGithub />,
+    accent: "blue",
+  },
+];
+
+function TechnologyItem({ technology }: { technology: Technology }) {
+  const isOrange = technology.accent === "orange";
+
+  return (
+    <div className="group flex items-center gap-3">
+      <span
+        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition-all duration-300 ${
+          isOrange
+            ? "border-[#FF9933]/15 bg-[#FF9933]/[0.06] text-[#FF9933] group-hover:border-[#FF9933]/30 group-hover:bg-[#FF9933]/10"
+            : "border-[#0A84FF]/15 bg-[#0A84FF]/[0.06] text-[#0A84FF] group-hover:border-[#0A84FF]/30 group-hover:bg-[#0A84FF]/10"
+        }`}
+      >
+        {technology.icon}
+      </span>
+
+      <span className="text-sm font-medium text-slate-300 transition-colors group-hover:text-white">
+        {technology.name}
+      </span>
+    </div>
+  );
+}
+
 function SkillGroup({
+  number,
   title,
   description,
   icon,
-  skills,
-}: {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  skills: Skill[];
-}) {
+  technologies,
+}: SkillGroupProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 35 }}
+      initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7 }}
-      className="border-b border-white/10 py-12 first:pt-0 last:border-b-0"
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="border-b border-white/10 py-10 last:border-b-0 sm:py-12"
     >
-      <div className="grid gap-10 lg:grid-cols-[260px_1fr]">
+      <div className="grid gap-8 lg:grid-cols-[280px_1fr] lg:gap-16">
+        {/* Category */}
         <div>
-          <div className="mb-4 flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#0A84FF]/20 bg-[#0A84FF]/10 text-[#0A84FF]">
-              {icon}
+          <div className="flex items-start gap-4">
+            <span className="pt-1 font-mono text-xs text-[#0A84FF]">
+              {number}
             </span>
 
-            <h3 className="text-xl font-bold text-white">
-              {title}
-            </h3>
-          </div>
+            <div>
+              <div className="mb-3 flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-[#0A84FF]">
+                  {icon}
+                </span>
 
-          <p className="max-w-xs text-sm leading-6 text-slate-500">
-            {description}
-          </p>
+                <h3 className="text-lg font-semibold text-white">
+                  {title}
+                </h3>
+              </div>
+
+              <p className="max-w-xs text-sm leading-6 text-slate-500">
+                {description}
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
-          {skills.map((skill) => (
-            <div key={skill.name}>
-              <div className="mb-3 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span
-                    className={`text-xl ${
-                      skill.accent === "orange"
-                        ? "text-[#FF9933]"
-                        : "text-[#0A84FF]"
-                    }`}
-                  >
-                    {skill.icon}
-                  </span>
-
-                  <span className="font-medium text-slate-200">
-                    {skill.name}
-                  </span>
-                </div>
-
-                <span className="text-xs font-medium text-slate-500">
-                  {skill.level}%
-                </span>
-              </div>
-
-              <div className="h-[3px] overflow-hidden rounded-full bg-white/10">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 1.2,
-                    ease: "easeOut",
-                  }}
-                  className={`relative h-full rounded-full ${
-                    skill.accent === "orange"
-                      ? "bg-gradient-to-r from-[#FF7A00] to-[#FFB347]"
-                      : "bg-gradient-to-r from-[#0A84FF] to-[#38BDF8]"
-                  }`}
-                />
-              </div>
-            </div>
+        {/* Technologies */}
+        <div className="grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
+          {technologies.map((technology) => (
+            <TechnologyItem
+              key={technology.name}
+              technology={technology}
+            />
           ))}
         </div>
       </div>
@@ -235,81 +282,112 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden bg-[#050816] py-32"
+      className="relative overflow-hidden bg-[#050816] py-24 sm:py-28 lg:py-32"
     >
-      <div className="pointer-events-none absolute -left-40 top-40 h-80 w-80 rounded-full bg-[#FF9933]/10 blur-[140px]" />
+      {/* Background Glows */}
+      <div className="pointer-events-none absolute left-[-180px] top-[20%] h-[360px] w-[360px] rounded-full bg-[#FF9933]/10 blur-[140px]" />
 
-      <div className="pointer-events-none absolute -right-40 bottom-20 h-96 w-96 rounded-full bg-[#0A84FF]/10 blur-[150px]" />
+      <div className="pointer-events-none absolute right-[-180px] bottom-[10%] h-[420px] w-[420px] rounded-full bg-[#0A84FF]/10 blur-[150px]" />
 
       <Container className="relative z-10">
         <SectionHeading
-          subtitle="My Expertise"
+          subtitle="Engineering Stack"
           title="Technologies I Work With"
         />
 
+        {/* Intro */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mt-8 max-w-2xl text-center text-base leading-7 text-slate-400"
+          className="mx-auto mt-7 max-w-2xl text-center text-base leading-7 text-slate-400"
         >
-          A combination of frontend, backend, database,
-          architecture and OCR development tools
-          that I use to build modern business applications.
+          A practical technology stack spanning frontend development,
+          backend engineering, databases, API integration, workflow
+          automation, and document processing.
         </motion.p>
 
-        <div className="mx-auto mt-20 max-w-6xl">
+        {/* Skill Groups */}
+        <div className="mx-auto mt-14 max-w-6xl">
           <SkillGroup
-            title="Languages"
-            description="Core programming and database languages used across application development."
-            icon={<Globe size={21} />}
-            skills={languageSkills}
+            number="01"
+            title="Core Languages"
+            description="Programming and query languages used across application development and data-driven systems."
+            icon={<Layers3 size={19} />}
+            technologies={coreTechnologies}
           />
 
           <SkillGroup
+            number="02"
             title="Frontend"
-            description="Modern frontend technologies for responsive and interactive web applications."
-            icon={<Globe size={21} />}
-            skills={frontendSkills}
+            description="Modern technologies for building responsive, maintainable and interactive web applications."
+            icon={<Globe size={19} />}
+            technologies={frontendTechnologies}
           />
 
           <SkillGroup
-            title="Backend"
-            description="Backend development, API integration, authentication and role-based access control."
-            icon={<Server size={21} />}
-            skills={backendSkills}
+            number="03"
+            title="Backend & APIs"
+            description="Backend services, API development, authentication and access-control systems."
+            icon={<Server size={19} />}
+            technologies={backendTechnologies}
           />
 
           <SkillGroup
-            title="Database"
-            description="Relational databases used for application data and business workflows."
-            icon={<Database size={21} />}
-            skills={databaseSkills}
+            number="04"
+            title="Databases"
+            description="Relational databases used for application data, business logic and transactional workflows."
+            icon={<Database size={19} />}
+            technologies={databaseTechnologies}
           />
 
           <SkillGroup
-            title="Architecture"
-            description="API design, data processing and background task execution."
-            icon={<Workflow size={21} />}
-            skills={architectureSkills}
+            number="05"
+            title="Architecture & Automation"
+            description="API integration, data processing and background execution for business workflows."
+            icon={<Workflow size={19} />}
+            technologies={architectureTechnologies}
           />
 
           <SkillGroup
-            title="Document Intelligence"
-            description="OCR development tools used to improve productivity and engineering workflows."
-            icon={<BrainCircuit size={21} />}
-            skills={aiSkills}
+            number="06"
+            title="AI & Document Processing"
+            description="OCR, document intelligence and AI-assisted development workflows used to improve automation and productivity."
+            icon={<BrainCircuit size={19} />}
+            technologies={aiTechnologies}
+          />
+
+          <SkillGroup
+            number="07"
+            title="Development Tools"
+            description="Version control and collaboration tools used throughout the development lifecycle."
+            icon={<GitBranch size={19} />}
+            technologies={developmentTools}
           />
         </div>
 
-        <div className="mx-auto mt-16 flex max-w-xl items-center justify-center gap-3">
-          <span className="h-px flex-1 bg-gradient-to-r from-transparent to-[#0A84FF]/40" />
+        {/* Bottom Statement */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="mx-auto mt-14 max-w-3xl border-t border-white/10 pt-8 text-center"
+        >
+          <p className="text-sm leading-7 text-slate-500">
+            I focus on using the right technology for the problem rather than
+            simply adding more tools to the stack.
+          </p>
 
-          <span className="h-2 w-2 rounded-full bg-[#FF9933] shadow-[0_0_15px_rgba(255,153,51,0.8)]" />
+          <div className="mt-5 flex items-center justify-center gap-3">
+            <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#0A84FF]/40" />
 
-          <span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#0A84FF]/40" />
-        </div>
+            <span className="h-1.5 w-1.5 rounded-full bg-[#FF9933]" />
+
+            <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#0A84FF]/40" />
+          </div>
+        </motion.div>
       </Container>
     </section>
   );
